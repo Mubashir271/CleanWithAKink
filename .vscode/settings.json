@@ -1,0 +1,5 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "typescript.reportStyleChecksAsWarnings": false,
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
