@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View, BackHandler, Alert} from 'react-native';
+import {Image, StyleSheet, View, BackHandler, Alert, StatusBar} from 'react-native';
 import React, {useCallback} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
@@ -43,17 +43,19 @@ const BottomNav = () => {
         headerShown: false,
         tabBarLabel: '', // Remove text from the bottom navigation
         tabBarStyle: {
-          width: wp(100), // Ensure full width for proper alignment
-          height: wp(18),
+          width: wp(90), // Ensure full width for proper alignment
+          height: wp(16),
           marginBottom: wp(2),
+          position:'absolute',
+          left:20,
           backgroundColor: '#ffffff',
           alignSelf: 'center', // Center the tab bar
           justifyContent: 'center',
           alignItems: 'center',
-          // borderTopWidth: 1, // Ensure top border is visible
+          borderWidth: 1, // Ensure top border is visible
           borderColor: '#E4428D',
-          borderRadius: 10, // Adjust for better border visibility
-          elevation: 1, // Remove shadow if causing visibility issues
+          borderRadius: 50, // Adjust for better border visibility
+          elevation: 2, // Remove shadow if causing visibility issues
         },
         tabBarIcon: ({focused}) => {
           const iconMap = {
@@ -65,7 +67,7 @@ const BottomNav = () => {
           };
 
           return (
-            <View style={{marginTop: wp(3)}}>
+            <View style={{marginTop: wp(2)}}>
               <View style={focused ? styles.focusedview : styles.unfocusedview}>
                 <Image
                   source={iconMap[route.name]}

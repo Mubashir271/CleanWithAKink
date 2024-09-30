@@ -85,29 +85,35 @@ const UpdatePasswordScreen = () => {
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    justifyContent: 'center',
+    backgroundColor:'#fff',
+    // justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    // marginBottom: 50,
+    paddingHorizontal: 20,
   },
   container: {
     width: '100%',
     alignItems: 'center',
+    // backgroundColor: 'transparent',
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
-    marginBottom: '10%',
+    marginTop: '25%',
+    marginBottom: 15,
   },
   image: {
     width: '100%',
     height: '40%',
     resizeMode: 'contain',
-    marginBottom: 20,
+    marginBottom: '3%',
   },
   text: {
+    // width: 314,
     fontSize: 16,
     textAlign: 'center',
+    // color: 'black',
     marginBottom: 20,
   },
   inputContainer: {
@@ -118,7 +124,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    marginBottom: 15,
+    marginBottom: '5%',
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -127,17 +133,17 @@ const styles = StyleSheet.create({
     width: '80%', // Adjusting for icon
   },
   icon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
-    resizeMode: 'contain',
+    width: '6%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
   },
   button: {
     backgroundColor: '#E4428D',
     width: '100%',
     paddingVertical: 12,
     borderRadius: 5,
-    marginTop: '8%',
+    marginTop: '5%',
     alignItems: 'center',
   },
   buttonText: {

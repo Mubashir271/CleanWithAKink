@@ -30,6 +30,7 @@ import UserFeedback from '../screens/userScreens/UserFeedback';
 import UserForgotPassword from '../screens/userScreens/UserForgotPassword';
 import UserVerification from '../screens/userScreens/UserVerification';
 import UserUpgradePassword from '../screens/userScreens/UserUpgradePassword';
+import UserEditProfile from '../screens/userScreens/UserEditProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -182,6 +183,11 @@ export default function Navigation() {
         component={UserUpgradePassword}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+      name="UserEditProfile"
+      component={UserEditProfile}
+      options={{headerShown: false}}
+    />
 
 
       </Stack.Navigator>

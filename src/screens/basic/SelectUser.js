@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  ImageBackground,
+  StatusBar,
+} from 'react-native';
 import RadioButton from './RadioButton'; // Ensure this import path is correct
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
-const SelectUser = ({ navigation }) => {
+const SelectUser = ({navigation}) => {
   const [selectedOption, setSelectedOption] = useState(null); // State to hold selected option
 
-  const handleRadioButtonPress = (value) => {
+  const handleRadioButtonPress = value => {
     setSelectedOption(value); // Update the selected option
   };
 
@@ -24,11 +33,15 @@ const SelectUser = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground
-      source={require('../../assets/img/imageBackground.png')} // Path to your background image
-      style={styles.backgroundImage}
-    >
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <StatusBar
+        backgroundColor={'#fff'}
+        barStyle={'dark-content'}
+        translucent
+      />
+      <ImageBackground
+        source={require('../../assets/img/imageBackground.png')} // Path to your background image
+        style={styles.backgroundImage}>
         {/* Logo at the top center */}
         <View style={styles.logoContainer}>
           <Image
@@ -36,15 +49,14 @@ const SelectUser = ({ navigation }) => {
             style={styles.logo}
           />
         </View>
-        
+
         {/* Two views side by side at the bottom */}
         <View style={styles.bottomContainer}>
           <View style={styles.sideBySideContainer}>
             <View style={styles.boxContainer}>
               <TouchableOpacity
                 style={styles.box}
-                onPress={() => handleRadioButtonPress('view1')}
-              >
+                onPress={() => handleRadioButtonPress('view1')}>
                 <Image
                   source={require('../../assets/img/provider.png')} // Image for View 1
                   style={styles.boxImage}
@@ -61,8 +73,7 @@ const SelectUser = ({ navigation }) => {
             <View style={styles.boxContainer}>
               <TouchableOpacity
                 style={styles.box}
-                onPress={() => handleRadioButtonPress('view2')}
-              >
+                onPress={() => handleRadioButtonPress('view2')}>
                 <Image
                   source={require('../../assets/img/user.png')} // Image for View 2
                   style={styles.boxImage}
@@ -86,8 +97,8 @@ const SelectUser = ({ navigation }) => {
             <Text style={styles.buttonText}>Continue</Text>
           </TouchableOpacity>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 
@@ -100,13 +111,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    backgroundColor:'#fff'
   },
   logoContainer: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '50%', // Adjusted marginTop to move the logo down
+    marginTop: '30%', // Adjusted marginTop to move the logo down
   },
   logo: {
     width: '100%',
@@ -137,7 +148,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,

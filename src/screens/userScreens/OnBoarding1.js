@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     elevation: 10, // Adds elevation for Android devices
   },
   skipText: {
+    top:6,
     fontSize: 16,
     color: '#003C3C',
   },

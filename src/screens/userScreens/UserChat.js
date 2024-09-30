@@ -86,14 +86,16 @@ const styles = StyleSheet.create({
   userProfile: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent:'center',
     marginBottom: wp(4),
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
     paddingBottom: wp(2),
   },
   avatar: {
-    width: wp(12),
-    height: wp(12),
+    width: wp(18),
+    height: wp(18),
+    bottom:6,
     borderRadius: wp(6),
   },
   messageInfo: {
@@ -101,16 +103,18 @@ const styles = StyleSheet.create({
     marginLeft: wp(4),
   },
   userName: {
-    fontSize: wp(4),
     fontWeight: 'bold',
+    bottom:10,
+    color:'#000000',
   },
   userMessage: {
     fontSize: wp(3.5),
-    color: '#666',
+    color: '#7B7B7B',
   },
   messageTime: {
     fontSize: wp(3),
-    color: '#999',
+    bottom:18,
+    color: '#999999',
   },
 });
 

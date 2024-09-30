@@ -12,6 +12,7 @@ import {
   Dimensions,
   Modal,
   Platform,
+  StatusBar,
 } from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Header from '../../components/Header';
@@ -35,6 +36,12 @@ const UserHome = ({navigation}) => {
     {id: '3', title: 'House shofting'},
     {id: '4', title: 'Floor washing'},
     {id: '5', title: 'Window cleaning'},
+    {id: '6', title: 'Laundry'},
+    {id: '7', title: 'Water Faucet repairing'},
+    {id: '8', title: 'House shofting'},
+    {id: '9', title: 'Floor washing'},
+    {id: '10', title: 'Window cleaning'},
+    {id: '11', title: 'Maid Cleaning'},
     // Add more items as needed
   ];
 
@@ -92,7 +99,7 @@ const UserHome = ({navigation}) => {
       <Header title="Home" />
 
       {/* Main Content */}
-      <ScrollView>
+      <ScrollView style = {{flex:1 , }}>
         {/* Search Bar */}
 
         {/* <TouchableOpacity onPress={openSearch}> */}
@@ -145,7 +152,7 @@ const UserHome = ({navigation}) => {
               source={require('../../assets/icons/carpetcleaning.png')}
               style={styles.serviceimg}
             />
-            <Text style={styles.serviceText}>Carpet & Holster Clean</Text>
+            <Text style={styles.serviceText}>Carpet & Holster Cl...</Text>
           </ImageBackground>
 
           <ImageBackground
@@ -155,7 +162,7 @@ const UserHome = ({navigation}) => {
               source={require('../../assets/icons/maid.png')}
               style={styles.serviceimg4}
             />
-            <Text style={styles.serviceText4}>Maid Cleaning</Text>
+            <Text style={styles.serviceText}>Maid Cleaning</Text>
           </ImageBackground>
         </View>
         {/* Top Services Section */}
@@ -260,7 +267,7 @@ const UserHome = ({navigation}) => {
               style={styles.backButton}
             />
 
-            <View style={{flex: 1, backgroundColor: '#fff'}}>
+            <View style={styles.searchingContainer}>
               {/* Header Section */}
               <SearchHeader title="Searching...." showBackButton={true} />
               {/* Search Bar */}
@@ -411,7 +418,8 @@ const styles = StyleSheet.create({
   },
   serviceText: {
     resizeMode: 'contain',
-    fontSize: wp(3.2),
+    fontSize: wp(2.5),
+    fontWeight:'bold',
     textAlign: 'center',
   },
   serviceText4: {
@@ -426,15 +434,15 @@ const styles = StyleSheet.create({
     marginRight: wp(-2),
   },
   topServiceImage: {
-    width: wp(35),
-    height: wp(35),
+    width: wp(36),
+    height: wp(36),
     borderRadius: 10,
   },
   topServiceimg: {
-    width: '98%',
-    height: wp(17.3),
-    resizeMode: 'cover',
-    marginLeft: 1,
+    width: '100%',
+    height: wp(18),
+    resizeMode: 'contain',
+    // marginLeft: 1,
   },
   topServiceTextContainer: {
     marginTop: wp(2),
@@ -448,13 +456,13 @@ const styles = StyleSheet.create({
     marginBottom: wp(0.5),
   },
   topServiceText: {
-    fontSize: wp(3),
+    fontSize: wp(2.1),
     color: '#666',
   },
   bookingname: {
     color: '#E91E63',
     fontSize: 10,
-    marginVertical: 12,
+    marginVertical: 10,
     marginLeft: 8,
   },
   name: {
@@ -491,18 +499,20 @@ const styles = StyleSheet.create({
   },
   bookingText: {
     flex: 1,
-    marginLeft: 10,
-    marginTop: 5,
+    marginLeft: 8,
+    // marginTop: 5,
     fontSize: 16,
     color: '#424242',
     fontWeight: 'bold',
   },
   bookingreviewtext: {
     fontSize: 10,
+    marginLeft:8,
   },
   bookingreviewimage: {
     height: wp(3),
     width: wp(3),
+    // marginLeft:4,
     resizeMode: 'contain',
   },
   priceText: {
@@ -511,7 +521,7 @@ const styles = StyleSheet.create({
     color: '#E91E63',
   },
   price: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#E91E63',
   },
@@ -541,6 +551,11 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)', // Semi-transparent background
   },
+  searchingContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    // alignItems:'center'
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -552,7 +567,7 @@ const styles = StyleSheet.create({
     marginVertical: wp(6),
   },
   searchInput: {
-    flex: 1,
+    // flex: 1,
     fontSize: wp(3),
     color: '#333',
   },
@@ -560,7 +575,8 @@ const styles = StyleSheet.create({
     width: wp(4),
     height: wp(4),
     tintColor: '#666',
-    marginHorizontal: wp(2),
+    marginHorizontal: wp(3.5),
+    left:wp(2),
   },
   searchActionsContainer: {
     flexDirection: 'row',

@@ -39,14 +39,12 @@ const UserChatExtend = () => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.Header}>
       {/* Header */}
       <Header
         title={user.name}
         showBackButton={true}
         onBackPress={() => navigation.goBack()}
       />
-      </View>
 
       {/* Chat messages */}
       <ScrollView 
@@ -84,19 +82,17 @@ const UserChatExtend = () => {
 };
 
 const styles = StyleSheet.create({
-    Header:{
-    },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
   },
   scrollView: {
     flex: 1,
     paddingBottom: 70, // Add padding at the bottom to ensure content isn't hidden by footer
   },
   messagesContainer: {
-    padding: 10,
+    padding: 15,
   },
   messageContainer: {
     padding: 10,
@@ -106,9 +102,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     shadowColor: '#E4428D',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 1,
     shadowRadius: 4,
-    elevation: 2,
+    elevation: 8,
   },
   selfMessage: {
     alignSelf: 'flex-end',
@@ -130,6 +126,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   footer: {
+    height:'10%',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 14,
@@ -140,7 +137,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowColor:'#E4428D',
     borderRadius: 50,
-    marginHorizontal:10,
+    marginHorizontal:14,
 },
   input: {
     flex: 1,

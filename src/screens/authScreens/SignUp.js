@@ -48,7 +48,7 @@ const SignUpScreen = () => {
             <View style={styles.inputContainer}>
               <Image
                 source={require('../../assets/icons/login.png')} // Icon for first name
-                style={styles.icon}
+                style={styles.nameicon}
               />
               <TextInput
                 style={styles.inputName}
@@ -60,7 +60,7 @@ const SignUpScreen = () => {
             <View style={styles.inputContainer}>
               <Image
                 source={require('../../assets/icons/login.png')} // Icon for last name
-                style={styles.icon}
+                style={styles.nameicon}
               />
               <TextInput
                 style={styles.inputName}
@@ -154,10 +154,14 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
+    justifyContent:'center',
   },
   scrollContainer: {
     flexGrow: 1,
     alignItems: 'center',
+    backgroundColor:'#fff',
+    // paddingHorizontal: 10,
+    // paddingTop: 8,
   },
   container: {
     flex: 1,
@@ -175,20 +179,22 @@ const styles = StyleSheet.create({
     marginTop: '8%',
   },
   avatar: {
-    width: 112,
-    height: 116,
+    width: 111.5,
+    height: 114,
     borderRadius: 8, // Slightly rounded corners
     marginVertical: 20,
     resizeMode: 'cover',
   },
   nameContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: '100%',
     marginBottom: 15,
+    // padding:10,
   },
   otherFieldsContainer: {
     width: '100%',
+    // padding:4,
     marginBottom: 20, // Adjust the margin to control spacing
   },
   inputWrapper: {
@@ -216,18 +222,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
+    fontSize:14,
     height: 40,
-    width: '80%', // Adjusting for icon
+    // width: '80%', // Adjusting for icon
   },
   inputName: {
     height: 40,
     width: '80%', // Adjusting for icon
   },
+  nameicon:{
+    width: '12%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
+  },
   icon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
-    resizeMode: 'contain',
+    width: '6%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
   },
   button: {
     backgroundColor: '#E4428D',
@@ -246,7 +259,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   text: {
-    color: 'black',
+    color: '#616161',
   },
   loginText: {
     color: '#E4428D',

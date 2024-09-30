@@ -7,45 +7,48 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-  Alert,
+  StatusBar,
   ImageBackground,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import Navigation from '../../navigation/Navigation';
 import {useNavigation} from '@react-navigation/native';
+
 const {width} = Dimensions.get('window');
 
-const LoginScreen = () => {
+const Login = () => {
   const navigation = useNavigation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRememberMe, setIsRememberMe] = useState(false);
 
-  const handleLogin = () => {
-    // Handle login logic here
-    //  Alert.alert('Logged In', 'You are now logged in!');
-    navigation.navigate('SignUp');
-  };
-
   return (
     <ImageBackground
-      source={require('../../assets/img/imageBackground.png')} // Path to your background image
+      source={require('../../assets/img/imageBackground.png')}
       style={styles.backgroundImage}>
+
+      {/* StatusBar */}
+      <StatusBar
+        backgroundColor="#fff" // Change this to your background color
+        barStyle="dark-content"
+        hidden={false} // Make sure it's visible
+        translucent={false} // Ensure it's not translucent temporarily
+      />
+
       <View style={styles.container}>
         {/* Bold Heading at the top */}
         <Text style={styles.heading}>Log In To Your Account</Text>
 
         {/* Logo image */}
         <Image
-          source={require('../../assets/img/logo.png')} // Replace with the actual path to your logo
+          source={require('../../assets/img/logo.png')}
           style={styles.logo}
         />
 
         {/* Email field */}
         <View style={styles.inputContainer}>
           <Image
-            source={require('../../assets/icons/login.png')} // Replace with the actual path to your icon
+            source={require('../../assets/icons/login.png')}
             style={styles.icon}
           />
           <TextInput
@@ -60,7 +63,7 @@ const LoginScreen = () => {
         {/* Password field */}
         <View style={styles.inputContainer}>
           <Image
-            source={require('../../assets/icons/password.png')} // Replace with the actual path to your icon
+            source={require('../../assets/icons/password.png')}
             style={styles.icon}
           />
           <TextInput
@@ -82,8 +85,7 @@ const LoginScreen = () => {
             />
             <Text style={styles.rememberMeText}>Remember Me</Text>
           </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('ForgotPassword')}>
+          <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
@@ -95,8 +97,9 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
+        {/* Sign Up link */}
         <View style={styles.SignUp}>
-          <Text style={styles.Text}>Don't have a account?</Text>
+          <Text style={styles.Text}>Don't have an account?</Text>
           <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.SignUpText}>Sign Up</Text>
           </TouchableOpacity>
@@ -115,8 +118,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: 'transparent', // Make sure the background color is transparent to show the background image
+    backgroundColor: '#fff',
     paddingHorizontal: 20,
+    paddingTop: 8, // Add enough padding to avoid overlap with the status bar
   },
   heading: {
     fontSize: 24,
@@ -145,19 +149,20 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   icon: {
-    width: 15,
-    height: 15,
-    marginRight: 10,
+    width: '6%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
   },
   input: {
-    flex: 1,
+    fontSize:14,
     height: 40,
   },
   optionsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    width: '100%',
+    width: '120%',
     marginBottom: 20,
   },
   rememberMeContainer: {
@@ -166,7 +171,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   rememberMeText: {
-    marginLeft: 2,
+    // marginLeft: 2,
     fontSize: 12,
     fontWeight: 'bold',
   },
@@ -180,15 +185,18 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 5,
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 20,
   },
   buttonText: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
   },
+  Text: {
+    color:'#616161',
+  },
   SignUp: {
-    marginTop:10,
+    marginTop: 10,
     alignItems: 'center',
     flexDirection: 'row',
   },
@@ -199,4 +207,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default Login;

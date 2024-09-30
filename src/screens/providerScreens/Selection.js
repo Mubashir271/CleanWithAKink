@@ -17,7 +17,7 @@ import {useNavigation} from '@react-navigation/native';
 const services = [
   {
     id: '1',
-    name: 'House Keeping',
+    name: 'House Keep...',
     price: '100',
     icon: require('../../assets/icons/housekeeping.png'),
   },
@@ -29,7 +29,7 @@ const services = [
   },
   {
     id: '3',
-    name: 'Carpet & Upholstery Cleaning',
+    name: 'Carpet & Upholstery...',
     price: '100',
     icon: require('../../assets/icons/carpetcleaning.png'),
   },
@@ -41,7 +41,7 @@ const services = [
   },
   {
     id: '5',
-    name: 'Spring Cleaning',
+    name: 'Spring Cleani..',
     price: '100',
     icon: require('../../assets/icons/springcleaning.png'),
   },
@@ -63,30 +63,32 @@ export default function ServiceSelectionScreen() {
 
   const renderService = ({item}) => (
     <ScrollView>
-    <ImageBackground
-      source={require('../../assets/img/rectangleframe.png')}
-      style={styles.backgroundImage}
-      imageStyle={{
-        borderRadius: 10,
-        resizeMode: 'contain',
-        width: '100%',
-        margin: 10,
-      }}>
-      <TouchableOpacity
-        style={[
-          styles.serviceItem,
-          selectedService === item.id && styles.selectedService,
-        ]}
-        onPress={() => handleSelect(item.id)}>
-        <SelectButton
-          isSelected={selectedService === item.id}
-          onPress={() => handleSelect(item.id)}
-        />
-        <Image source={item.icon} style={styles.icon} />
-        <Text style={styles.serviceName}>{item.name}</Text>
-        <Text style={styles.price}>${item.price}</Text>
-      </TouchableOpacity>
-    </ImageBackground>
+      <ImageBackground
+        source={require('../../assets/img/rectangleframe.png')}
+        style={styles.backgroundImage}
+        imageStyle={{
+          borderRadius: 10,
+          resizeMode: 'contain',
+          height:'70%',
+          width: '95%',
+          margin: 10,
+        }}>
+        <TouchableOpacity
+          style={[
+            styles.serviceItem,
+            selectedService === item.id && styles.selectedService,
+          ]}
+          onPress={() => handleSelect(item.id)}>
+          <SelectButton
+            isSelected={selectedService === item.id}
+            onPress={() => handleSelect(item.id)}
+            style={styles.SelectButton}
+          />
+          <Image source={item.icon} style={styles.icon} />
+          <Text style={styles.serviceName}>{item.name}</Text>
+          <Text style={styles.price}>${item.price}</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </ScrollView>
   );
 
@@ -119,23 +121,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 5,
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   list: {
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   serviceItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    resizeMode: 'cover',
-    padding: 10,
-    marginHorizontal: 20,
+    resizeMode: 'contain',
+    padding: 4,
+    marginHorizontal: '10%',
     // marginTop: 10,
-    marginBottom: 15,
+    marginBottom: '8%',
   },
   servicelist: {
     marginTop: 10,
-    // paddingTop:10,
+    // paddingTop:-50,
   },
   selectedService: {
     // borderColor: '#E4428D', // Border color for selected service
@@ -146,25 +148,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     resizeMode: 'contain',
     flexDirection: 'row',
-    paddingVertical: 5,
+    // paddingVertical: 1,
     alignItems: 'center',
     marginHorizontal: 15,
   },
   icon: {
-    width: 40,
-    resizeMode: 'contain',
-    height: 40,
-    marginRight: 10,
+    width: 55,
+    height: 55,
+    top: 9,
+    left: -10,
+    resizeMode: 'cover',
   },
   serviceName: {
     flex: 1,
     fontSize: 16,
-    // paddingTop:4,
+    paddingTop:14,
   },
   price: {
     color: '#E4428D',
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
+    marginRight:-14,
+    marginTop:14,
   },
   continueButton: {
     backgroundColor: '#E4428D',
@@ -173,7 +178,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginTop: '10%',
-    marginHorizontal: 30,
+    marginHorizontal: 20,
     bottom: '2%',
     width: '90%',
   },

@@ -11,7 +11,6 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
-import { Calendar } from 'react-native-calendars';
 
 const UserTopService = () => {
   const navigation = useNavigation();
@@ -21,7 +20,7 @@ const UserTopService = () => {
   const [shouldNavigate, setShouldNavigate] = useState(false);
   const [counter, setCounter] = useState(1); // Scheduling counter
 
-  
+
   const handleBookService = () => {
     setSchedulingModalVisible(true);  // Show modal when the book button is clicked
   };
@@ -31,7 +30,7 @@ const UserTopService = () => {
       setSchedulingModalVisible(false); // Close scheduling modal
       setServiceConfirmationModalVisible(true); // Open service confirmation modal
     };
-  
+
     const incrementCounter = () => {
       setCounter(prev => prev + 1);
     };
@@ -46,10 +45,10 @@ const UserTopService = () => {
       if (shouldNavigate) {
         navigation.navigate('UserWaiting');  // Navigate when state is set to true
       }
-    }, 
+    },
     // [shouldNavigate]
   );
-  
+
   return (
     <View style={styles.container}>
       {/* Back Button */}
@@ -149,7 +148,9 @@ const UserTopService = () => {
             style={[
               styles.button,
               activeButton === 'chat'
+                // eslint-disable-next-line react-native/no-inline-styles
                 ? {backgroundColor: '#E4428D'}
+                // eslint-disable-next-line react-native/no-inline-styles
                 : {
                     backgroundColor: '#FFD4E8',
                     borderColor: '#E4428D',
@@ -163,6 +164,7 @@ const UserTopService = () => {
             <Text
               style={[
                 styles.buttonText,
+                // eslint-disable-next-line react-native/no-inline-styles
                 activeButton === 'chat' ? {color: '#fff'} : {color: '#E4428D'},
               ]}>
               Chat Now
@@ -172,7 +174,9 @@ const UserTopService = () => {
             style={[
               styles.button,
               activeButton === 'book'
+                // eslint-disable-next-line react-native/no-inline-styles
                 ? {backgroundColor: '#E4428D'}
+                // eslint-disable-next-line react-native/no-inline-styles
                 : {
                     backgroundColor: '#FFD4E8',
                     borderColor: '#E4428D',
@@ -186,6 +190,7 @@ const UserTopService = () => {
             <Text
               style={[
                 styles.buttonText,
+                // eslint-disable-next-line react-native/no-inline-styles
                 activeButton === 'book' ? {color: '#fff'} : {color: '#E4428D'},
               ]}>
               Book The Service
@@ -269,7 +274,6 @@ const UserTopService = () => {
 
             {/* Modal for Booking */}
             <Modal
-            
         animationType="slide"
         transparent={true}
         visible={serviceConfirmationModalVisible}
@@ -283,8 +287,8 @@ const UserTopService = () => {
             <Image source={require('../../assets/img/bookmodallogo.png')} style={styles.modalLogo} />
 
             {/* Modal Text */}
-            <Text style={styles.modalText}>You can continue after 
-              paying the 40% 
+            <Text style={styles.modalText}>You can continue after
+              paying the 40%
             payment</Text>
 
             {/* Input Fields */}
@@ -473,35 +477,39 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 30,
+    justifyContent: 'space-between',
+    marginTop: 20,
     width: '100%',
   },
   button: {
     backgroundColor: '#E4428D',
-    borderRadius: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    width: '45%', // Adjust width as needed
+    borderRadius: 10,
+    justifyContent:'center',
+    // paddingVertical: 20,
+    // paddingHorizontal: 10,
+    width: wp(40), // Adjust width as needed
+    height: 50,
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
     textAlign: 'center',
+    fontWeight:'bold',
+    overflow:'hidden',
   },
   bookingname: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 12,
     marginTop: wp(-14),
-    marginLeft: wp(24),
+    marginLeft: wp(30),
     marginRight: wp(10),
   },
   heartIcon: {
     marginTop: wp(-13),
     width: wp(2),
     height: wp(2),
-    // marginLeft:wp(2),
+    // marginRight:wp(2),
   },
   bookingContainer: {
     marginTop: 20,
@@ -592,18 +600,17 @@ const styles = StyleSheet.create({
   },
   counterContainer:{
     flexDirection:'row',
-    width:'20%',
+    width:'25%',
     justifyContent:'space-evenly',
   },
   counterButton:{
     width:'35%',
-    marginRight:'8%',
+    marginRight:'9%',
     justifyContent:'center',
     alignItems:'center',
     borderRadius:50,
     borderColor:'#E4428D',
     borderWidth:0.5,
-
   },
   counterButtonText:{
     color:'#E4428D',
@@ -631,11 +638,13 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   inputIcon: {
-    width: 20,
-    height: 20,
+    width: '6%',
+    height: '45%',
     marginLeft: 10,
+    resizeMode:'contain',
   },
   input:{
+    fontSize:14,
     flex: 1,
     padding: 10,
   },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, ScrollView, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
@@ -15,6 +15,7 @@ const ForgotPasswordScreen = () => {
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
+          <StatusBar backgroundColor={'#fff'} translucent/>
           {/* Heading */}
           <Text style={styles.heading}>Forgot Password</Text>
 
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
+    backgroundColor:'#fff',
     // justifyContent: 'center',
     alignItems: 'center',
     // marginBottom: 50,
@@ -69,13 +71,13 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
-    marginTop: '15%',
+    marginTop: '25%',
     marginBottom: 50,
   },
   forgotImage: {
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     width: 314,
     fontSize: 16,
     textAlign: 'center',
-    color: 'black',
+    // color: 'black',
     marginBottom: 20,
   },
   inputContainer: {
@@ -108,9 +110,10 @@ const styles = StyleSheet.create({
     width: '80%', // Adjusting for icon
   },
   icon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
+    width: '6%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
   },
   button: {
     backgroundColor: '#E4428D',

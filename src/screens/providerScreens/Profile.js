@@ -33,8 +33,6 @@ const Profile = ({navigation}) => {
                 color: '#E4428D',
                 fontSize: 16,
                 fontWeight: 'bold',
-                marginRight: 15,
-                marginTop: 20,
               }}>
               Edit
             </Text>
@@ -57,10 +55,10 @@ const Profile = ({navigation}) => {
           <View style={styles.inputContainerSmall}>
             <Image
               source={require('../../assets/icons/firstnameicon.png')} // Icon for first name
-              style={styles.icon}
+              style={styles.nameicon}
             />
             <TextInput
-              style={styles.input}
+              style={styles.nameinput}
               placeholder="First Name"
               value={firstName}
               onChangeText={setFirstName}
@@ -69,10 +67,10 @@ const Profile = ({navigation}) => {
           <View style={styles.inputContainerSmall}>
             <Image
               source={require('../../assets/icons/firstnameicon.png')} // Icon for last name
-              style={styles.icon}
+              style={styles.nameicon}
             />
             <TextInput
-              style={styles.input}
+              style={styles.nameinput}
               placeholder="Last Name"
               value={lastName}
               onChangeText={setLastName}
@@ -186,9 +184,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#E4428D',
     borderWidth: 1,
+    width:'100%',
+    justifyContent:'center',
     borderRadius: 10,
     marginBottom: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 30,
     paddingVertical: 8,
   },
   inputContainerSmall: {
@@ -204,13 +204,25 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     paddingVertical: 8,
   },
+  nameinput:{
+    fontSize:14,
+  },
+  nameicon:{
+    width: '12%',
+    height: '45%',
+    marginRight: 6,
+    left:2,
+    resizeMode:'contain',
+  },
   icon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
+    width: '6%',
+    height: '45%',
+    marginRight: 5,
+    marginLeft:-16,
+    resizeMode:'contain',
   },
   editButton: {
     fontSize: 16,

@@ -32,6 +32,7 @@ const SettingsScreen = () => {
 
       {/* Main Content */}
       <ScrollView contentContainerStyle={styles.scrollView}>
+        <View style={styles.contentContainer}>
         <View style={styles.Text}>
         <Text style={styles.mainTitle}>EMERGENCY FOR CUSTOMERS</Text>
 
@@ -42,32 +43,34 @@ const SettingsScreen = () => {
         <View style={styles.optionsContainer}>
           {options.map((option) => (
             <ImageBackground
-              key={option.id}
-              source={require('../../assets/img/rectangleframe.png')}
-              style={styles.optionBackground}
-              imageStyle={{ borderRadius: 10 }}
+            key={option.id}
+            source={require('../../assets/img/rectangleframe.png')}
+            style={styles.optionBackground}
+            resizeMode="contain" // Ensure the full image is visible without being cut off
+          >
+            <TouchableOpacity
+              style={[
+                styles.option,
+                selectedOption === option.id && styles.selectedOption
+              ]}
+              onPress={() => handleSelect(option.id)}
             >
-              <TouchableOpacity
-                style={[
-                  styles.option,
-                  selectedOption === option.id && styles.selectedOption
-                ]}
+              <SelectButton
+                isSelected={selectedOption === option.id}
                 onPress={() => handleSelect(option.id)}
-              >
-                <SelectButton
-                  isSelected={selectedOption === option.id}
-                  onPress={() => handleSelect(option.id)}
-                />
-                <Image source={require('../../assets/icons/notificationicon.png')} style={styles.optionIcon} />
-                <Text style={styles.optionText}>{option.label}</Text>
-              </TouchableOpacity>
-            </ImageBackground>
+              />
+              <Image source={require('../../assets/icons/notificationicon.png')} style={styles.optionIcon} />
+              <Text style={styles.optionText}>{option.label}</Text>
+            </TouchableOpacity>
+          </ImageBackground>
+          
           ))}
         </View>
 
         <TouchableOpacity style={styles.sendButton}>
           <Text style={styles.sendButtonText}>Send to Customers</Text>
         </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );
@@ -77,11 +80,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    // padding:20,
   },
   scrollView: {
     flexGrow: 1,
-    paddingHorizontal: 16,
+    // marginHorizontal: 16,
     paddingVertical: 24,
+  },
+  contentContainer:{
+    margin:20,
   },
   Text: {
     alignItems:'center',
@@ -114,7 +121,8 @@ const styles = StyleSheet.create({
     height: 80, // Adjust height as needed
     marginBottom: 20,
     justifyContent: 'center',
-    paddingHorizontal: -20,
+    // resizeMode:'contain'
+    // paddingHorizontal: -20,
   },
   option: {
     flexDirection: 'row',

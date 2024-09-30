@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Header from '../../components/Header';
 
@@ -31,6 +31,7 @@ const notifications = [
 const NotificationScreen = () => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'}/>
       {/* Header */}
       <Header title="Notifications" />
 
@@ -70,14 +71,14 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
     padding: wp(5),
     // marginHorizontal:wp(5),
-    width:wp(100)
+    width:wp(100),
   },
   notificationIcon: {
-    width: wp(14),
-    height: wp(14),
+    width: wp(16),
+    height: wp(16),
     borderRadius:20,
     marginRight: wp(4),
-    marginLeft: wp(-4),
+    marginLeft: wp(2),
   },
   notificationContent: {
     flex: 1,
@@ -85,12 +86,12 @@ const styles = StyleSheet.create({
   notificationTitle: {
     fontSize: wp(4),
     fontWeight: 'bold',
-    color: '#333',
+    color: '#000000',
   },
   notificationMessage: {
     fontSize: wp(3.5),
     color: '#666',
-    marginTop: wp(1),
+    marginTop: wp(3),
   },
   notificationTime: {
     fontSize: wp(3),

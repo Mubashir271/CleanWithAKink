@@ -10,9 +10,8 @@ import {
 } from 'react-native';
 import Header from '../../components/Header'; // Ensure this imports the correct Header component
 import * as ImagePicker from 'react-native-image-picker';
-import BottomNav from '../../navigation/BottomNav';
 
-const EditProfile = ({ navigation }) => {
+const UserEditProfile = ({ navigation }) => {
   const [avatar, setAvatar] = useState(null); 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -128,7 +127,7 @@ const EditProfile = ({ navigation }) => {
         </View>
 
         {/* Update Button */}
-        <TouchableOpacity style={styles.updateButton} onPress={() => navigation.navigate('BottomNav')}>
+        <TouchableOpacity style={styles.updateButton} onPress={() => navigation.navigate('BottomNavUser')}>
           <Text style={styles.updateButtonText}>Update</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flexGrow: 1,
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingVertical: 20,
   },
   avatarContainer: {
     alignItems: 'center',
@@ -159,7 +158,7 @@ const styles = StyleSheet.create({
     width: 112,
     height: 116,
     borderRadius: 8, // Slightly rounded corners
-    marginVertical: 25,
+    marginVertical: 10,
     // resizeMode: 'contain',
     marginHorizontal: '35%',
   },
@@ -215,7 +214,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 10,
     alignItems: 'center',
-    marginVertical: 16,
+    marginVertical: 10,
   },
   updateButtonText: {
     color: '#fff',
@@ -225,4 +224,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EditProfile;
+export default UserEditProfile;

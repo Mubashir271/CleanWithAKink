@@ -30,6 +30,7 @@ const DetailPage = () => {
         onBackPress={() => navigation.goBack()} // Navigate back when pressed
         rightComponent={null} // No right component needed
       />
+      
       <View style={styles.content}>
         {/* Image */}
         <Image
@@ -72,7 +73,7 @@ const DetailPage = () => {
           <View style={styles.inputContainer}>
             <Image
               source={require('../../assets/icons/emailicon.png')} // Replace with your icon path
-              style={styles.icon}
+              style={styles.emailicon}
             />
             <TextInput
               style={styles.addressInput}
@@ -140,10 +141,11 @@ const DetailPage = () => {
 const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20,
+    backgroundColor:'#fff',
   },
   container: {
     backgroundColor: '#fff',
-    flex: 1,
+    // flex: 1,
   },
   image: {
     width: '100%',
@@ -164,53 +166,62 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: 'row',
+    width:'95%',
     alignItems: 'center',
+    padding:4,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#cfcfcf',
+    borderColor: '#F6C0D9',
   },
   icon: {
-    width: 20,
-    height: 20,
-    marginHorizontal: 10,
-    resizeMode: 'contain'
+    width: '10%',
+    height: '45%',
+    marginLeft: 20,
+    resizeMode:'contain',
+  },
+  emailicon:{
+    width: '5.5%',
+    height: '45%',
+    marginLeft: 14,
+    resizeMode:'contain',
   },
   infoTextInput: {
     flex: 1,
-    fontSize: 16,
-    color: '#333',
-    paddingVertical: 8,
+    fontSize: 14,
+    color: '#9E9E9E',
+    paddingVertical: 10,
     paddingHorizontal: 10,
   },
   addressInput: {
     flex: 1,
-    fontSize: 16,
-    color: '#333',
+    fontSize: 14,
+    // color: '#333',
     paddingVertical: 8,
     paddingHorizontal: 10,
   },
   addressContainer: {
-    marginVertical: 20,
+    marginVertical: 10,
   },
   descriptionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: '#cfcfcf',
+    borderColor: '#F6C0D9',
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
     marginVertical: 20,
   },
   descriptionIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
+    width: '5.5%',
+    height: '45%',
+    marginLeft: 10,
+    resizeMode:'contain',
     marginTop: -50,
   },
   descriptionInput: {
     flex: 1,
     fontSize: 16,
-    color: '#333',
+    // color: '#333',
     padding: 10,
     height: 100,
     textAlignVertical: 'top',
@@ -219,6 +230,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 20,
+    backgroundColor:'#fff'
   },
   rejectButton: {
     flex: 1,

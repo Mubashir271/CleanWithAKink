@@ -6,7 +6,7 @@ const UserAllServices = () => {
   const services = [
     { id: '1', title: 'House Cleaning', image: require('../../assets/icons/housekeeping.png') },
     { id: '2', title: 'Basic House Cleaning', image: require('../../assets/icons/housecleaning.png') },
-    { id: '3', title: 'Carpet & Holster Clean', image: require('../../assets/icons/carpetcleaning.png') },
+    { id: '3', title: 'Carpet & Holster ...', image: require('../../assets/icons/carpetcleaning.png') },
     { id: '4', title: 'Maid Cleaning', image: require('../../assets/icons/maid.png') },
     { id: '5', title: 'Spring Cleaning', image: require('../../assets/icons/springcleaning.png') },
     { id: '6', title: 'Commercial Cleaning', image: require('../../assets/icons/commercialcleaning.png') },
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingVertical: 20,
-    resizeMode:'cover',
+    // resizeMode:'cover',
     width:'100%',
   },
   serviceContainer: {
     flex: 1,
-    margin: 5,
-    height: '90%',
+    // margin: 5,
+    height: '95%',
     width:'60%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   backimg: {
-    width: '100%',
-    height: '85%',
-    // resizeMode: 'contain'
+    width: '95%',
+    height: '88%',
+    resizeMode: 'contain'
   },
 });
 

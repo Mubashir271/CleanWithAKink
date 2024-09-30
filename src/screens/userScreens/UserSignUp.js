@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, ScrollView, StatusBar } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, ScrollView } from 'react-native';
 import * as ImagePicker from 'react-native-image-picker'; // Import ImagePicker
 import { useNavigation } from '@react-navigation/native';
 
@@ -25,11 +25,10 @@ const UserSignUp = () => {
   };
 
   return (
-    
     <ImageBackground
       source={require('../../assets/img/imageBackground.png')} // Path to your background image
       style={styles.backgroundImage}
-    ><StatusBar backgroundColor={'#f5f5f5'}/>
+    >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
           {/* Heading */}
@@ -48,7 +47,7 @@ const UserSignUp = () => {
             <View style={styles.inputContainer}>
               <Image
                 source={require('../../assets/icons/login.png')} // Icon for first name
-                style={styles.icon}
+                style={styles.nameicon}
               />
               <TextInput
                 style={styles.inputName}
@@ -60,7 +59,7 @@ const UserSignUp = () => {
             <View style={styles.inputContainer}>
               <Image
                 source={require('../../assets/icons/login.png')} // Icon for last name
-                style={styles.icon}
+                style={styles.nameicon}
               />
               <TextInput
                 style={styles.inputName}
@@ -133,7 +132,7 @@ const UserSignUp = () => {
           </View>
 
           {/* Sign Up Button */}
-          <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Login')}>
+          <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('User_Login')}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
 
@@ -154,11 +153,14 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
+    justifyContent:'center',
   },
   scrollContainer: {
-    // paddingBottom:'5%',
     flexGrow: 1,
     alignItems: 'center',
+    backgroundColor:'#fff',
+    // paddingHorizontal: 10,
+    // paddingTop: 8,
   },
   container: {
     flex: 1,
@@ -170,26 +172,28 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
-    marginBottom: 20,
+    marginBottom: '2%',
     fontWeight: 'bold',
     color: 'black',
-    marginTop: '10%',
+    marginTop: '8%',
   },
   avatar: {
-    width: 112,
-    height: 116,
+    width: 111.5,
+    height: 114,
     borderRadius: 8, // Slightly rounded corners
     marginVertical: 20,
     resizeMode: 'cover',
   },
   nameContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: '100%',
     marginBottom: 15,
+    // padding:10,
   },
   otherFieldsContainer: {
     width: '100%',
+    // padding:4,
     marginBottom: 20, // Adjust the margin to control spacing
   },
   inputWrapper: {
@@ -212,23 +216,30 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    marginBottom: 10,
+    marginBottom: -5,
     flexDirection: 'row',
     alignItems: 'center',
   },
   input: {
+    fontSize:14,
     height: 40,
-    width: '80%', // Adjusting for icon
+    // width: '80%', // Adjusting for icon
   },
   inputName: {
     height: 40,
     width: '80%', // Adjusting for icon
   },
+  nameicon:{
+    width: '12%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
+  },
   icon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
-    resizeMode: 'contain',
+    width: '6%',
+    height: '45%',
+    marginHorizontal: 10,
+    resizeMode:'contain',
   },
   button: {
     backgroundColor: '#E4428D',
@@ -244,10 +255,10 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     flexDirection: 'row',
-    marginTop: 20,
+    marginTop: 10,
   },
   text: {
-    color: 'black',
+    color: '#616161',
   },
   loginText: {
     color: '#E4428D',
